@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-gray-800 dark:to-gray-900;
+  transition: background-color 0.5s ease;
+  font-family: 'Poppins', sans-serif;
+}
