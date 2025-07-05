@@ -34,23 +34,63 @@
 ## Folder Structure
 
 Hackaton/
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── components/
-│ │ │ ├── CityCard.js
-│ │ │ └── Loader.js
-│ │ ├── App.js
-│ │ └── index.js
-│ ├── public/
-│ ├── tailwind.config.js
-│ ├── postcss.config.js
-│ └── package.json
-├── server/ # Node.js backend
-│ ├── app.js
-│ └── package.json
-└── README.md
+├── client/                  # React frontend
+│   ├── public/
+│   │   └── index.html       # Main HTML file for rendering the React app
+│   ├── src/
+│   │   ├── assets/          # Icons, logos, and other static assets
+│   │   ├── components/      # Reusable React components
+│   │   │   ├── CityCard.js
+│   │   │   ├── Loader.js
+│   │   │   ├── Map.js
+│   │   │   ├── VoiceAssistant.js
+│   │   │   └── LanguageSelector.js
+│   │   ├── utils/           # Helper utility functions
+│   │   │   ├── fetchCity.js
+│   │   │   ├── speak.js
+│   │   │   └── translate.js
+│   │   ├── App.js           # Main app logic (UI, handlers)
+│   │   ├── index.js         # Entry point of the React app
+│   │   └── config.js        # API base URLs or keys (non-secret)
+│   ├── .env                 # API keys for Google Translate, etc.
+│   ├── tailwind.config.js   # Tailwind CSS setup
+│   ├── postcss.config.js    # PostCSS setup for Tailwind
+│   └── package.json         # Frontend dependencies and scripts
+├── server/                  # Express backend
+│   ├── routes/
+│   │   └── wiki.js          # Handles Wikipedia and coordinate routes
+│   ├── app.js               # Main backend entry point
+│   ├── .env                 # OpenAI and Google Maps API keys
+│   └── package.json         # Backend dependencies and scripts
+└── README.md                # Project overview and instructions
+
 
 ---
+System Architecture
+Frontend:
+React app renders UI.
+
+
+Axios sends city query requests to the backend.
+
+
+Displays city data and manages dark mode.
+
+
+Backend:
+Express server receives search queries.
+
+
+Fetches real-time summaries from Wikipedia API.
+
+
+Responds to frontend with JSON data.
+
+APIs Used
+Our project integrates multiple powerful APIs to enrich the user experience. 
+The *Wikipedia API* is used to fetch structured summaries about cities, giving quick and reliable information.
+For language accessibility, the *Google Translate API* is integrated to translate content into multiple languages.
+ Lastly, the *Web Speech API* (native to modern browsers) handles both voice input and text-to-speech output.
 
 ![WhatsApp Image 2025-07-05 at 18 45 55_1dab6f65](https://github.com/user-attachments/assets/8524440f-c438-4ed0-af2d-92c5350519b9)
 ![WhatsApp Image 2025-07-05 at 19 14 23_ba1bc005](https://github.com/user-attachments/assets/4c59a1fa-bb73-410a-b49c-905f8dbe276c)
@@ -100,9 +140,18 @@ Wikipedia Foundation for the open API
 Tailwind CSS team
 
 OpenAI for ChatGPT integration (optional)
+```
 
 
+###Summary
+This structure separates *frontend* and *backend* clearly. It supports features like:
 
+Wikipedia + Google Maps + Street View integration
+ChatGPT integration
+Voice recognition
+Text-to-speech
+Translation
+Real-time sync (via Socket.IO if added later)
 
 
 
